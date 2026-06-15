@@ -1,10 +1,10 @@
 <!DOCTYPE html>
-<html lang="ja">
+<html lang="en">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>ゆめよみ — 千年の知恵が、夢を読む。</title>
-<meta name="description" content="日本古来の夢占い・縁起・瑞兆をAIが読み解く。朝に記した夢を、和の夢解きでやさしく。">
+<title>Yumeyomi — A thousand years of wisdom, reading your dreams.</title>
+<meta name="description" content="AI interprets Japan's ancient dream divination, omens and auspicious signs. The dream you note at dawn, read gently in the Japanese tradition.">
 <link href="https://fonts.googleapis.com/css2?family=Yomogi&family=Zen+Maru+Gothic:wght@300;400;500;700&display=swap" rel="stylesheet">
 <style>
 *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
@@ -36,7 +36,6 @@ body {
   position: relative;
 }
 
-/* ── 七宝柄の背景（さりげなく） ── */
 .shippo-bg {
   position: fixed;
   inset: 0;
@@ -48,7 +47,6 @@ body {
 }
 .content { position: relative; z-index: 1; }
 
-/* ── 言語切替 ── */
 .lang-nav {
   position: absolute;
   top: 16px;
@@ -70,7 +68,6 @@ body {
 .lang-nav a.on { color: var(--enji); background: rgba(139,32,53,0.08); }
 .lang-nav a:hover { color: var(--enji); }
 
-/* ── HERO ── */
 .hero {
   min-height: 100svh;
   display: flex;
@@ -92,44 +89,36 @@ body {
   pointer-events: none;
 }
 
-.torii {
-  margin-bottom: 18px;
-  opacity: 0;
-  animation: up 0.9s ease 0.1s forwards;
-}
+.torii { margin-bottom: 18px; opacity: 0; animation: up 0.9s ease 0.1s forwards; }
 
 .hero-logo {
   font-family: 'Yomogi', cursive;
-  font-size: clamp(52px, 16vw, 88px);
+  font-size: clamp(46px, 14vw, 78px);
   color: var(--enji);
-  letter-spacing: 0.12em;
+  letter-spacing: 0.06em;
   line-height: 0.95;
   opacity: 0;
   animation: up 0.9s ease 0.25s forwards;
 }
-
 .hero-catch {
   font-family: 'Yomogi', cursive;
-  font-size: clamp(20px, 5.6vw, 26px);
+  font-size: clamp(19px, 5vw, 25px);
   color: var(--enji-d);
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
   margin-top: 22px;
-  line-height: 1.7;
+  line-height: 1.6;
   opacity: 0;
   animation: up 0.9s ease 0.42s forwards;
 }
-
 .hero-sub {
-  font-family: 'Zen Maru Gothic', sans-serif;
   font-size: clamp(13px, 3.6vw, 15px);
   color: var(--ink2);
-  letter-spacing: 0.05em;
+  letter-spacing: 0.02em;
   margin-top: 16px;
-  line-height: 2;
+  line-height: 1.9;
   opacity: 0;
   animation: up 0.9s ease 0.58s forwards;
 }
-
 .gold-rule {
   width: 48px;
   height: 1.5px;
@@ -138,7 +127,6 @@ body {
   opacity: 0;
   animation: up 0.9s ease 0.72s forwards;
 }
-
 .hero-scroll {
   margin-top: 40px;
   opacity: 0;
@@ -158,29 +146,18 @@ body {
 .scroll-txt { font-size: 9px; letter-spacing: 0.22em; color: var(--ink3); }
 
 @keyframes pulse { 0%,100%{opacity:.35} 50%{opacity:.9} }
-@keyframes up {
-  from { opacity:0; transform: translateY(16px); }
-  to   { opacity:1; transform: translateY(0); }
-}
+@keyframes up { from { opacity:0; transform: translateY(16px); } to { opacity:1; transform: translateY(0); } }
 
-/* ── ANALYSIS ── */
 .analysis { padding: 52px 24px 0; }
-
 .sec-title {
   font-family: 'Yomogi', cursive;
   font-size: clamp(22px, 6vw, 27px);
   color: var(--enji);
-  line-height: 1.6;
+  line-height: 1.5;
   margin-bottom: 14px;
-  letter-spacing: 0.06em;
+  letter-spacing: 0.03em;
 }
-.sec-body {
-  font-size: 14px;
-  line-height: 2.1;
-  color: var(--ink2);
-  margin-bottom: 24px;
-}
-
+.sec-body { font-size: 14px; line-height: 2; color: var(--ink2); margin-bottom: 24px; }
 .sample {
   background: var(--paper);
   border-radius: 18px;
@@ -189,57 +166,25 @@ body {
   box-shadow: 0 4px 20px rgba(139,32,53,0.07);
   border: 1px solid rgba(194,160,90,0.2);
 }
-.sample-label {
-  font-size: 9px;
-  letter-spacing: 0.22em;
-  color: var(--gold2);
-  margin-bottom: 10px;
-}
-.sample-text { font-size: 13px; line-height: 2.1; color: var(--ink2); }
-.sample-text em {
-  font-style: normal;
-  color: var(--enji);
-  font-weight: 500;
-}
-
-.theory-dots {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 6px 0;
-  padding-bottom: 52px;
-}
-.theory-dots span {
-  font-size: 12px;
-  color: var(--enji2);
-  padding: 0 10px;
-  position: relative;
-}
-.theory-dots span::after {
-  content: '·';
-  position: absolute;
-  right: -1px;
-  color: var(--gold);
-}
+.sample-label { font-size: 9px; letter-spacing: 0.22em; color: var(--gold2); margin-bottom: 10px; }
+.sample-text { font-size: 13px; line-height: 1.95; color: var(--ink2); }
+.sample-text em { font-style: normal; color: var(--enji); font-weight: 500; }
+.theory-dots { display: flex; flex-wrap: wrap; gap: 6px 0; padding-bottom: 52px; }
+.theory-dots span { font-size: 12px; color: var(--enji2); padding: 0 10px; position: relative; }
+.theory-dots span::after { content: '·'; position: absolute; right: -1px; color: var(--gold); }
 .theory-dots span:last-child::after { display: none; }
 
-/* ── FEATURES ── */
-.features {
-  padding: 52px 24px 0;
-  display: flex;
-  flex-direction: column;
-  gap: 44px;
-}
+.features { padding: 52px 24px 0; display: flex; flex-direction: column; gap: 44px; }
 .feat { display: flex; flex-direction: column; gap: 14px; }
 .feat-icon { margin-bottom: 4px; }
 .feat-title {
   font-family: 'Yomogi', cursive;
   font-size: clamp(20px, 5.5vw, 24px);
   color: var(--enji);
-  line-height: 1.6;
-  letter-spacing: 0.06em;
+  line-height: 1.5;
+  letter-spacing: 0.03em;
 }
-.feat-body { font-size: 14px; line-height: 2.1; color: var(--ink2); }
-
+.feat-body { font-size: 14px; line-height: 2; color: var(--ink2); }
 .notify-list { display: flex; flex-direction: column; gap: 10px; margin-top: 8px; }
 .notif {
   background: var(--paper);
@@ -252,22 +197,10 @@ body {
   border: 1px solid rgba(194,160,90,0.18);
 }
 .notif-left { flex: 1; }
-.notif-app {
-  font-size: 9px;
-  letter-spacing: 0.14em;
-  color: var(--enji2);
-  margin-bottom: 5px;
-}
-.notif-msg { font-size: 13px; line-height: 1.75; color: var(--ink); }
-.notif-time {
-  font-size: 10px;
-  color: var(--ink3);
-  white-space: nowrap;
-  flex-shrink: 0;
-  padding-top: 1px;
-}
+.notif-app { font-size: 9px; letter-spacing: 0.14em; color: var(--enji2); margin-bottom: 5px; }
+.notif-msg { font-size: 13px; line-height: 1.6; color: var(--ink); }
+.notif-time { font-size: 10px; color: var(--ink3); white-space: nowrap; flex-shrink: 0; padding-top: 1px; }
 
-/* ── PRICING ── */
 .pricing { padding: 52px 24px 0; }
 .pricing-title {
   font-family: 'Yomogi', cursive;
@@ -275,7 +208,7 @@ body {
   color: var(--enji);
   text-align: center;
   margin-bottom: 24px;
-  letter-spacing: 0.08em;
+  letter-spacing: 0.04em;
 }
 .plan-wrap { display: flex; flex-direction: column; gap: 16px; padding-bottom: 52px; }
 .plan {
@@ -286,93 +219,44 @@ body {
   border: 1px solid rgba(194,160,90,0.18);
 }
 .plan.premium { border: 1.5px solid var(--enji); box-shadow: 0 6px 26px rgba(139,32,53,0.13); }
-.plan-name {
-  font-size: 10px;
-  letter-spacing: 0.22em;
-  color: var(--ink3);
-  margin-bottom: 8px;
-}
-.plan-price {
-  font-family: 'Yomogi', cursive;
-  font-size: 36px;
-  color: var(--ink);
-  line-height: 1;
-  margin-bottom: 6px;
-}
+.plan-name { font-size: 10px; letter-spacing: 0.22em; color: var(--ink3); margin-bottom: 8px; }
+.plan-price { font-family: 'Yomogi', cursive; font-size: 36px; color: var(--ink); line-height: 1; margin-bottom: 6px; }
 .plan-price small { font-size: 13px; color: var(--ink3); margin-left: 6px; }
-.plan-note {
-  font-size: 11px;
-  color: var(--gold2);
-  letter-spacing: 0.04em;
-  margin-bottom: 16px;
-}
+.plan-note { font-size: 11px; color: var(--gold2); letter-spacing: 0.02em; margin-bottom: 16px; }
 .plan-items { list-style: none; display: flex; flex-direction: column; gap: 10px; }
-.plan-items li {
-  font-size: 13px;
-  color: var(--ink2);
-  display: flex;
-  gap: 10px;
-  align-items: flex-start;
-  line-height: 1.6;
-}
-.plan-items li::before {
-  content: '✦';
-  font-size: 10px;
-  color: var(--gold);
-  flex-shrink: 0;
-  padding-top: 3px;
-}
+.plan-items li { font-size: 13px; color: var(--ink2); display: flex; gap: 10px; align-items: flex-start; line-height: 1.55; }
+.plan-items li::before { content: '✦'; font-size: 10px; color: var(--gold); flex-shrink: 0; padding-top: 3px; }
 .plan.premium .plan-items li::before { color: var(--enji); }
-.premium-label {
-  font-family: 'Yomogi', cursive;
-  font-size: 12px;
-  color: var(--enji);
-  margin-bottom: 4px;
-  letter-spacing: 0.1em;
-}
+.premium-label { font-family: 'Yomogi', cursive; font-size: 12px; color: var(--enji); margin-bottom: 4px; letter-spacing: 0.08em; }
 
-/* ── CTA ── */
 .cta { padding: 56px 28px 76px; text-align: center; }
 .cta h2 {
   font-family: 'Yomogi', cursive;
   font-size: clamp(20px, 5.5vw, 26px);
   color: var(--enji);
-  line-height: 1.9;
+  line-height: 1.7;
   margin-bottom: 10px;
-  letter-spacing: 0.06em;
-}
-.cta p {
-  font-size: 11px;
-  color: var(--ink3);
-  letter-spacing: 0.12em;
-  margin-bottom: 28px;
+  letter-spacing: 0.03em;
 }
 .cta-btn {
   display: inline-flex;
   align-items: center;
   gap: 8px;
-  padding: 16px 44px;
+  padding: 16px 40px;
   border-radius: 50px;
   border: none;
   background: var(--enji);
   color: var(--cream);
   font-family: 'Yomogi', cursive;
-  font-size: 16px;
-  letter-spacing: 0.1em;
+  font-size: 15px;
+  letter-spacing: 0.04em;
   text-decoration: none;
   transition: background .2s, transform .15s;
   box-shadow: 0 6px 24px rgba(139,32,53,0.28);
 }
 .cta-btn:hover { background: var(--enji2); transform: translateY(-2px); }
 
-/* ── FOOTER ── */
-footer {
-  padding: 22px;
-  text-align: center;
-  font-size: 10px;
-  color: var(--ink3);
-  letter-spacing: 0.12em;
-}
+footer { padding: 22px; text-align: center; font-size: 10px; color: var(--ink3); letter-spacing: 0.1em; }
 footer a { color: var(--enji); text-decoration: none; }
 footer .dot { margin: 0 6px; color: var(--ink3); }
 </style>
@@ -382,9 +266,9 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
 <div class="shippo-bg"></div>
 
 <nav class="lang-nav">
-  <a href="index.html" class="on">日本語</a>
+  <a href="index.html">日本語</a>
   <a href="index-zh.html">繁中</a>
-  <a href="index-en.html">EN</a>
+  <a href="index-en.html" class="on">EN</a>
 </nav>
 
 <div class="content">
@@ -392,8 +276,6 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
 <!-- HERO -->
 <section class="hero">
   <div class="hero-glow"></div>
-
-  <!-- 鳥居 SVG -->
   <div class="torii">
     <svg width="58" height="54" viewBox="0 0 58 54" fill="none" xmlns="http://www.w3.org/2000/svg">
       <path d="M4 12 Q29 4 54 12 L54 17 Q29 10 4 17 Z" fill="#8B2035"/>
@@ -404,9 +286,9 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
     </svg>
   </div>
 
-  <h1 class="hero-logo">ゆめよみ</h1>
-  <p class="hero-catch">千年の知恵が、夢を読む。</p>
-  <p class="hero-sub">日本古来の夢占い・縁起・瑞兆を<br>AIが読み解く</p>
+  <h1 class="hero-logo">Yumeyomi</h1>
+  <p class="hero-catch">A thousand years of wisdom,<br>reading your dreams.</p>
+  <p class="hero-sub">AI interprets Japan's ancient dream divination,<br>omens &amp; auspicious signs</p>
   <div class="gold-rule"></div>
 
   <div class="hero-scroll">
@@ -415,24 +297,24 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
   </div>
 </section>
 
-<!-- 分析 -->
+<!-- Reading -->
 <section class="analysis">
-  <h2 class="sec-title">ただの占いじゃない。<br>日本に伝わる、夢解き。</h2>
-  <p class="sec-body">正夢・逆夢の言い伝え、初夢の縁起、龍や白蛇といった瑞兆（ずいちょう・めでたいしるし）。風水の方角、十二支、色や数の吉凶——日本古来の夢占い・風水・十二支・瑞兆の知恵を横断し、あなたが朝に記した夢を、やわらかく詩的に読み解きます。古い言葉にはやさしい注釈を添えて。</p>
+  <h2 class="sec-title">Not just fortune-telling.<br>Dream-reading, as told in Japan.</h2>
+  <p class="sec-body">Tales of <em>masayume</em> (prophetic dreams) and <em>sakayume</em> (reverse dreams), New Year omens, and auspicious signs (<em>zuichō</em>) like dragons and white snakes. Feng-shui directions, the zodiac, the fortune of colors and numbers — Yumeyomi draws on Japan's ancient dream divination, feng shui, zodiac and auspicious signs to read the dream you noted at dawn, gently and poetically. Old terms come with plain, kind notes.</p>
 
   <div class="sample">
-    <p class="sample-label">SAMPLE — 読み解きイメージ</p>
+    <p class="sample-label">SAMPLE — a reading</p>
     <p class="sample-text">
-      夢にあらわれた"蛇"は、古くから<em>巳（み・金運と再生の干支）</em>として、財や実りの吉兆と語られてきました。白い蛇であればなおのこと、<em>瑞兆（めでたいしるし）</em>。落ちてゆく感覚は、こころのゆるみへのそっとした戒めとも。けれど怖い夢こそ<em>逆夢（さかゆめ・現実とは反対のことが起こる、めでたい夢）</em>として、福へ転じると伝えられています。
+      The "snake" that appeared in your dream has long been told, as <em>Mi (the zodiac sign of wealth and rebirth)</em>, to be a fortunate sign of riches and harvest. A white snake, all the more so — a <em>zuichō (auspicious sign)</em>. The sensation of falling may be a gentle reminder of a heart let loose. Yet the more frightening the dream, the more it is read as a <em>sakayume (a dream whose opposite comes true, turning ill into fortune)</em>, said to invite good luck.
     </p>
   </div>
 
   <div class="theory-dots">
-    <span>正夢・逆夢</span><span>初夢「一富士二鷹三茄子」</span><span>蛇は金運</span><span>風水・方角</span><span>十二支・干支</span><span>色の吉凶</span><span>数の縁起</span><span>季節と自然の景物</span><span>神仏・お告げ</span><span>瑞兆（龍・鳳凰・白蛇）</span><span>古典文学の夢</span><span>虫の知らせ</span><span>言い伝え</span>
+    <span>Prophetic &amp; reverse dreams</span><span>New Year's "Fuji, Hawk, Eggplant"</span><span>Snake = wealth</span><span>Feng shui &amp; directions</span><span>Chinese zodiac</span><span>Fortune of colors</span><span>Lucky numbers</span><span>Seasons &amp; nature</span><span>Deities &amp; omens</span><span>Auspicious signs (dragon, phoenix, white snake)</span><span>Dreams in the classics</span><span>Premonitions</span><span>Folk sayings</span>
   </div>
 </section>
 
-<!-- 機能 -->
+<!-- Features -->
 <section class="features">
   <div class="feat">
     <div class="feat-icon">
@@ -442,8 +324,8 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
         <line x1="18" y1="9" x2="18" y2="29" stroke="#FAF3E8" stroke-width="1.5"/>
       </svg>
     </div>
-    <h2 class="feat-title">朝、ざっくり<br>話すだけでいい。</h2>
-    <p class="feat-body">起きたままの言葉で記録するだけ。断片的でも、感情だけでも大丈夫。毎日積み重なると、あなただけの夢のうつろいと兆しが見えてきます。</p>
+    <h2 class="feat-title">Just talk, loosely,<br>in the morning.</h2>
+    <p class="feat-body">Jot it down in your just-woken words. Fragments are fine, even just a feeling. Day by day, the flow and the signs of your own dreams begin to show.</p>
   </div>
 
   <div class="feat">
@@ -453,20 +335,20 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
         <circle cx="18" cy="29" r="2.5" fill="#C2A05A"/>
       </svg>
     </div>
-    <h2 class="feat-title">夢の言葉が、<br>一日寄り添う。</h2>
-    <p class="feat-body">朝に記録があれば、昼と夜にひとこと届きます。読み解いた夢をもとに、そっと寄り添う言葉や小さな後押しを、やさしくお送りします。</p>
+    <h2 class="feat-title">The dream's words<br>stay with you all day.</h2>
+    <p class="feat-body">Leave a note in the morning, and a few words arrive at noon and at night. Drawing on the dream we read, we gently send words that stay close, and a small nudge.</p>
     <div class="notify-list">
       <div class="notif">
         <div class="notif-left">
-          <p class="notif-app">ゆめよみ</p>
-          <p class="notif-msg">今朝の夢、ちゃんと覚えてるよ。きょうも無理しないでね。</p>
+          <p class="notif-app">Yumeyomi</p>
+          <p class="notif-msg">I remember this morning's dream. Take it easy today.</p>
         </div>
         <span class="notif-time">12:15</span>
       </div>
       <div class="notif">
         <div class="notif-left">
-          <p class="notif-app">ゆめよみ</p>
-          <p class="notif-msg">きょう一日、よく頑張ったね。ゆっくり眠れますように。</p>
+          <p class="notif-app">Yumeyomi</p>
+          <p class="notif-msg">You did well today. May you sleep soundly.</p>
         </div>
         <span class="notif-time">21:30</span>
       </div>
@@ -474,31 +356,31 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
   </div>
 </section>
 
-<!-- PRICING -->
+<!-- Pricing -->
 <section class="pricing">
-  <h2 class="pricing-title">料金プラン</h2>
+  <h2 class="pricing-title">Pricing</h2>
   <div class="plan-wrap">
     <div class="plan free">
       <p class="plan-name">FREE</p>
       <p class="plan-price">¥0</p>
-      <p class="plan-note">登録不要で無料お試し</p>
+      <p class="plan-note">No sign-up · free trial</p>
       <ul class="plan-items">
-        <li>夢・相談の読み解き 各5回お試し</li>
-        <li>夢日記の保存（7日間）</li>
-        <li>やさしい通知つき</li>
+        <li>Dream &amp; consult readings, 5 free trials each</li>
+        <li>Dream diary (7 days)</li>
+        <li>Gentle notifications</li>
       </ul>
     </div>
     <div class="plan premium">
-      <p class="premium-label">✦ おすすめ</p>
+      <p class="premium-label">✦ Recommended</p>
       <p class="plan-name">PREMIUM</p>
-      <p class="plan-price">¥300<small>買い切り</small></p>
-      <p class="plan-note">月30回まで・毎月リセット（自動更新なし）</p>
+      <p class="plan-price">¥300<small>one-time</small></p>
+      <p class="plan-note">Up to 30 / month · resets monthly (no auto-renewal)</p>
       <ul class="plan-items">
-        <li>夢・相談の読み解き 合計月30回（毎月リセット）</li>
-        <li>夢日記の永久保存</li>
-        <li>1週間のまとめ読み解き</li>
-        <li>通知 1日複数回</li>
-        <li>広告なし</li>
+        <li>Dream &amp; consult readings, 30 / month combined (resets monthly)</li>
+        <li>Permanent dream diary</li>
+        <li>Weekly summary reading</li>
+        <li>Multiple notifications a day</li>
+        <li>Ad-free</li>
       </ul>
     </div>
   </div>
@@ -506,20 +388,20 @@ footer .dot { margin: 0 6px; color: var(--ink3); }
 
 <!-- CTA -->
 <section class="cta">
-  <h2>今朝見た夢、<br>覚えていますか？</h2>
-  <a class="cta-btn" href="https://apps.apple.com/jp/app/id6777432908" target="_blank" rel="noopener">
+  <h2>The dream you had this morning —<br>do you still remember it?</h2>
+  <a class="cta-btn" href="https://apps.apple.com/app/id6777432908" target="_blank" rel="noopener">
     <svg width="18" height="18" viewBox="0 0 24 24" fill="currentColor" xmlns="http://www.w3.org/2000/svg">
       <path d="M16.36 12.78c-.02-2.36 1.93-3.49 2.02-3.55-1.1-1.61-2.81-1.83-3.42-1.85-1.46-.15-2.84.86-3.58.86-.74 0-1.88-.84-3.09-.81-1.59.02-3.06.92-3.88 2.35-1.65 2.87-.42 7.12 1.19 9.45.79 1.14 1.73 2.42 2.96 2.37 1.19-.05 1.64-.77 3.08-.77 1.43 0 1.84.77 3.09.74 1.28-.02 2.09-1.16 2.87-2.31.9-1.32 1.27-2.6 1.29-2.67-.03-.01-2.48-.95-2.5-3.78zM14.0 5.88c.66-.8 1.1-1.91.98-3.01-.95.04-2.1.63-2.78 1.42-.61.71-1.14 1.84-1 2.92 1.06.08 2.14-.54 2.8-1.33z"/>
     </svg>
-    App Store でダウンロード
+    Download on the App Store
   </a>
 </section>
 
 <footer>
-  <a href="privacy-policy.html">プライバシーポリシー</a>
+  <a href="privacy-en.html">Privacy Policy</a>
   <span class="dot">·</span>
-  <a href="terms.html">利用規約</a>
-  <br>お問い合わせ：hachimitsu.ir2.967@gmail.com<br>© 2026 Lifen
+  <a href="terms-en.html">Terms of Use</a>
+  <br>Contact: hachimitsu.ir2.967@gmail.com<br>© 2026 Lifen
 </footer>
 
 </div>
